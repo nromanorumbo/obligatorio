@@ -38,11 +38,57 @@ function showCategoriesList(array){
 document.addEventListener("DOMContentLoaded", function(e){
     getJSONData(PRODUCTS_URL).then(function(resultObj){
         if (resultObj.status === "ok")
-        {
+        {                                       
             categoriesArray = resultObj.data;
+            //esto es para ordenar de forma ascendente si cambio el orden de a y b lo hago descendente
+            categoriesArray.sort(function(a, b){return a - b});
             //Muestro las categorías ordenadas
             showCategoriesList(categoriesArray);
         }
         
     });
 });
+
+//aca hago la function para que filtre
+
+function filtra(){
+    //hago un array para no sobrescribir el original
+    let preFiltro=[];
+    //capturo el valor de maximo y minimo del html
+    let min= document.getElementById("pMin");
+    let max=document.getElementById("pMax");
+
+    //lo que hago aca es ver si hay valores en los inputs del filtro
+    if(min==null){
+        min=0;
+    }else if(max==null){
+        max=maxint;
+    }
+    //recorro el array y veo que objetos cumplen con los paramentros de filtrado
+    for (let i = 0; i<preFiltro.length; i++) {
+        var productoActual = preFiltro[i];
+        if (productoActual.cost > min && productoActual.cost < max) {
+
+            preFiltro.push(productoActual);
+        }
+      }
+      //dibugo la tabla con los productos 
+      showCategoriesList(preFiltro);
+
+      //vacio los imputs
+      document.getElementById("pMin").value = "";
+      document.getElementById("pMax").value = "";
+}
+
+const buscador=()=>{
+    let txtBuscado=document.querySelector("txtBuscador");
+
+    for(let producto of categoriesArray){
+
+        let elNombre=producto.name.toLowerCase();
+            //indexof retorna -1 cuando nno encuentra el valor, entonces si encontro el valor que retorna sera distinto de 1 
+        if(elNombre.indexof(txtBuscado) !== -1){
+
+        }
+    }
+}

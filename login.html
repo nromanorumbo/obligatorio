@@ -16,6 +16,11 @@
   <link href="css/styles.css" rel="stylesheet">
  <link href="css/estilologin.css" rel="stylesheet">
 
+<!-- esta es la parte del boton de google -->
+ <meta name="google-signin-scope" content="profile email">
+ <meta name="google-signin-client_id" content="437111635555-7bcfstj0bgktdgftqlhqgr1i4goktfkf.apps.googleusercontent.com">
+ 
+
 </head>
 
 <body class="text-center">
@@ -33,13 +38,23 @@
 
       <label for="pwr">Password: </label>
       <input type="text" id="pwr"><br>
-      <input type="button" id="btnLogIn" value="Log In" onclick="Validar()">
+      <input type="button" id="btnLogIn" value="Log In" onclick="validar()">
     </div>
 
   </div>
+<!-- esta es la parte del boton de google -->
+  <div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark"></div>
+  <script>
+
+
+
+
+  </script>
 
   <script src="js/init.js"></script>
   <script src="js/login.js"></script>
+<!-- esta es la parte del boton de google -->
+  <script src="https://apis.google.com/js/platform.js" async defer></script>
 
 </body>
 </html>

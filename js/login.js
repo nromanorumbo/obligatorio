@@ -1,10 +1,10 @@
 
 
-function Validar()
+function validar()
 		  {
               //aca esta hecho de dos manera una le paso por paramentros y la otra lo capturo, preguntar cualq ueire
-		   user=document.getElementById("uNom");
-		   pwr=document.getElementById("pwr");
+		   let user=document.getElementById("uNom");
+		   let pwr=document.getElementById("pwr");
 			let usuario={};
 
 		   
@@ -44,4 +44,58 @@ function Validar()
 			   return true;
 			  }
 			}
+
+			
+		  }
+
+function desconectar(){
+					signOut();
+					sessionStorage.clear();
+					window.location.href=("login.html");
+					alert("chau");
+
+				  }
+
+
+      function onSignIn(googleUser) {
+
+
+		
+
+        // Useful data for your client-side scripts:
+        var profile = googleUser.getBasicProfile();
+        console.log("ID: " + profile.getId()); // Don't send this directly to your server!
+        console.log('Full Name: ' + profile.getName());
+        console.log('Given Name: ' + profile.getGivenName());
+        console.log('Family Name: ' + profile.getFamilyName());
+        console.log("Image URL: " + profile.getImageUrl());
+        console.log("Email: " + profile.getEmail());
+
+        // The ID token you need to pass to your backend:
+        var id_token = googleUser.getAuthResponse().id_token;
+        console.log("ID Token: " + id_token);
+
+
+					let usuario={};
+					  //le asigno a la prop nombre del usuario el valor capturado
+					  usuario.nombre = profile.getName();
+
+					  sessionStorage.setItem("usuario",JSON.stringify(usuario))
+		
+		alert("llegue");
+		window.location.href=("index.html");
+      }
+
+	  
+function signOut() {
+			 var auth2 = gapi.auth2.getAuthInstance();
+				 auth2.signOut().then(function () {
+				console.log('User signed out.');
+			 });
+		  }
+//codigo requerido por google
+function onLoad() {
+			gapi.load('auth2', function() {
+			  gapi.auth2.init();
+			});
 		  }

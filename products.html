@@ -21,12 +21,27 @@
         <a class="py-2 d-none d-md-inline-block" href="products.html">Productos</a>
         <a class="py-2 d-none d-md-inline-block" href="sell.html">Vender</a>
         <a class="py-2 d-none d-md-inline-block" href="cart.html">Mi carrito</a>
+        <a class="py-2 d-none d-md-inline-block" href="login.html" onclick="sessionStorage.clear()">LogOut</a>
+        <p id="nomLogueado"></p>
       </div>
     </nav>
 
     <main role="main" class="pb-5">
       <div class="text-center p-4">
           <bold><h2>ESTE ES NUESTRO LISTADO DE PRODUCTOS!!</h2></bold>
+          <input type="search" id="txtBuscador">
+          <button class="btn btn-info">BUSCAR</button>
+          <!-- espacio apra precio minimo -->
+          <label for="pMin">min: </label>
+          <input type="text" id="pMin" placeholder="inrgrese monto minimo">
+
+          <!-- espacio apra precio minimo -->
+          <label for="pMax">max: </label>
+          <input type="text" id="pMax" placeholder="inrgrese monto maximo">
+
+          <input type="button" id="btnFiltro" onclick="filtra()" value="FILTRAR">
+
+
       </div>
       <div class="container">
           <div class="row">
