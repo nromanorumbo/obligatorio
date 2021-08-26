@@ -16,30 +16,49 @@
   <link href="css/styles.css" rel="stylesheet">
  <link href="css/estilologin.css" rel="stylesheet">
 
+<!-- esta es la parte del boton de google -->
+ <meta name="google-signin-scope" content="profile email">
+ <meta name="google-signin-client_id" content="437111635555-7bcfstj0bgktdgftqlhqgr1i4goktfkf.apps.googleusercontent.com">
+ 
+
 </head>
 
 <body class="text-center">
 
 
-  <div class="contenedorLogin">
-
-    <img src="img/login.png" alt="el logo de login">
-    <h1>Ingrese Aqui</h1>
-    <div>
-      <!-- nombre de usuario -->
-      <label for="uNom">Usuario: </label>
-      <input type="text" id="uNom"><br>
-      <!-- password -->
-
-      <label for="pwr">Password: </label>
-      <input type="text" id="pwr"><br>
-      <input type="button" id="btnLogIn" value="Log In" onclick="Validar()">
-    </div>
-
+  <div class="login-box">
+    <h2>Login</h2>
+    <form>
+      <div class="user-box">
+        <input type="text" name="" required="" id="uNom">
+        <label>Username</label>
+      </div>
+      <div class="user-box">
+        <input type="password" name="" required="" id="pwr">
+        <label>Password</label>
+      </div>
+      <a href="#" onclick="validar()">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        Submit
+      </a>
+    </form>
   </div>
+<!-- esta es la parte del boton de google -->
+  <div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark"></div>
+  <script>
+
+
+
+
+  </script>
 
   <script src="js/init.js"></script>
   <script src="js/login.js"></script>
+<!-- esta es la parte del boton de google -->
+  <script src="https://apis.google.com/js/platform.js" async defer></script>
 
 </body>
 </html>
