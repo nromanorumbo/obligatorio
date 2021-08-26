@@ -48,15 +48,21 @@ document.addEventListener("DOMContentLoaded", function(e){
         
     });
 });
+<<<<<<< HEAD
 //-----------------------------------Parte 2-----------------------------------------
 //aca hago la function para que filtre por minimo y maximo  
 let min;
 let max;
+=======
+
+//aca hago la function para que filtre
+>>>>>>> refs/remotes/origin/main
 
 function filtra(){
     //hago un array para no sobrescribir el original
     let preFiltro=[];
     //capturo el valor de maximo y minimo del html
+<<<<<<< HEAD
     
     let min= document.getElementById("pMin").value;
     
@@ -101,12 +107,34 @@ function filtra(){
         document.getElementById("cat-list-container").innerHTML="NO HAY PRODUCTO QUE CUMPLAN CON ESOS PARAMETROS";
       }
       
+=======
+    let min= document.getElementById("pMin");
+    let max=document.getElementById("pMax");
+
+    //lo que hago aca es ver si hay valores en los inputs del filtro
+    if(min==null){
+        min=0;
+    }else if(max==null){
+        max=maxint;
+    }
+    //recorro el array y veo que objetos cumplen con los paramentros de filtrado
+    for (let i = 0; i<preFiltro.length; i++) {
+        var productoActual = preFiltro[i];
+        if (productoActual.cost > min && productoActual.cost < max) {
+
+            preFiltro.push(productoActual);
+        }
+      }
+      //dibugo la tabla con los productos 
+      showCategoriesList(preFiltro);
+>>>>>>> refs/remotes/origin/main
 
       //vacio los imputs
       document.getElementById("pMin").value = "";
       document.getElementById("pMax").value = "";
 }
 
+<<<<<<< HEAD
 
 
 
@@ -126,6 +154,8 @@ function validaQueSeaNumero(num){
 
 }
 
+=======
+>>>>>>> refs/remotes/origin/main
 const buscador=()=>{
     let txtBuscado=document.querySelector("txtBuscador");
 

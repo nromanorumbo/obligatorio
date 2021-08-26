@@ -9,10 +9,13 @@ let usuario=JSON.parse(sessionStorage.getItem("usuario"));
    location.href="login.html";
  }
 
+<<<<<<< HEAD
 
  				 //aca meto el nombre del logueado
           document.getElementById('nomLogueado').innerHTML=(usuario.nombre).toUpperCase();
 
+=======
+>>>>>>> refs/remotes/origin/main
 // document.addEventListener("DOMContentLoaded", ()=>{
 //   let usuario= JSON.parse(sessionStorage.getItem("usuario"));
 //   if(usuario.estado!=="conectado"){

@@ -82,9 +82,12 @@ function desconectar(){
 					  //le asigno a la prop nombre del usuario el valor capturado
 					  usuario.nombre = profile.getName();
 
+<<<<<<< HEAD
 					  //aca meto el nombre del logueado
 					  document.getElementById('cont1').innerHTML='Párrafo de texto';
 
+=======
+>>>>>>> refs/remotes/origin/main
 					  sessionStorage.setItem("usuario",JSON.stringify(usuario))
 		
 		alert("llegue");
