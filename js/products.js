@@ -125,16 +125,71 @@ function validaQueSeaNumero(num){
         }
 
 }
+//----------------------AREA DEL BUSCADOR-------------------------------
 
-const buscador=()=>{
-    let txtBuscado=document.querySelector("txtBuscador");
+
+function buscador(){
+
+    let preFiltro=[];
+
+    let txtBuscado=document.getElementById("txtBuscador").value.toLowerCase();
 
     for(let producto of categoriesArray){
 
         let elNombre=producto.name.toLowerCase();
             //indexof retorna -1 cuando nno encuentra el valor, entonces si encontro el valor que retorna sera distinto de 1 
         if(elNombre.indexof(txtBuscado) !== -1){
-
+            preFiltro.push(producto);
         }
     }
+
+    if(preFiltro.length>0){
+        showCategoriesList(preFiltro);  
+      }else{
+        document.getElementById("cat-list-container").innerHTML="NO HAY PRODUCTO QUE CUMPLAN CON ESOS PARAMETROS";
+      }
+}
+
+//document.getElementById('txtBuscador').addEventListener('keyup',buscador())
+
+
+// ORDENAMIENTO POR RELEVANCIA
+
+
+function relevancia(){
+    let ordenado=[];
+
+
+
+    ordenado=categoriesArray.sort(function(a, b) {
+        return b.soldCount - a.soldCount;
+      });
+
+    showCategoriesList(ordenado);
+}
+
+
+
+
+function ascendente(){
+    let ordenado=[];
+
+    ordenado=categoriesArray.sort(function(a, b) {
+        return a.cost - b.cost;
+      });
+
+    showCategoriesList(ordenado);
+}
+
+
+
+function descendente(){
+
+    let ordenado=[];
+
+    ordenado=categoriesArray.sort(function(a, b) {
+        return b.cost - a.cost;
+      });
+
+    showCategoriesList(ordenado);
 }

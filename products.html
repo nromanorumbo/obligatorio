@@ -32,17 +32,23 @@
 
 
 
-          <input type="search" id="txtBuscador">
-          <button class="btn btn-info">BUSCAR</button>
+          <label for="txtBuscador">Buscador: </label>
+          <input type="search" id="txtBuscador" onkeyup="buscador()">
+
+          <!-- boton filtra por relevancia -->
+          <button class="btn btn-info" onclick="relevancia()">RELEVANCIA</button><br>
           <!-- espacio apra precio minimo -->
           <label for="pMin">min: </label>
           <input type="text" id="pMin" placeholder="inrgrese monto minimo">
 
-          <!-- espacio apra precio minimo -->
+          <!-- espacio apra precio maximo -->
           <label for="pMax">max: </label>
           <input type="text" id="pMax" placeholder="inrgrese monto maximo">
 
           <input type="button" class="btn btn-info" id="btnFiltro" onclick="filtra()" value="FILTRAR">
+
+          <button class="btn btn-info" onclick="ascendente()">ascendente</button>
+          <button class="btn btn-info" onclick="descendente()">descendente</button>
       </div>
       <div class="container">
           <div class="row">
