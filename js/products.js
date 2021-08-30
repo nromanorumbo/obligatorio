@@ -138,7 +138,7 @@ function buscador(){
 
         let elNombre=producto.name.toLowerCase();
             //indexof retorna -1 cuando nno encuentra el valor, entonces si encontro el valor que retorna sera distinto de 1 
-        if(elNombre.indexof(txtBuscado) !== -1){
+        if(elNombre.indexOf(txtBuscado) !== -1){
             preFiltro.push(producto);
         }
     }
