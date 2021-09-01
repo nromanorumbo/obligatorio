@@ -137,8 +137,9 @@ function buscador(){
     for(let producto of categoriesArray){
 
         let elNombre=producto.name.toLowerCase();
+        let laDescrip=producto.description.toLowerCase();
             //indexof retorna -1 cuando nno encuentra el valor, entonces si encontro el valor que retorna sera distinto de 1 
-        if(elNombre.indexOf(txtBuscado) !== -1){
+        if(elNombre.indexOf(txtBuscado) !== -1 || laDescrip.indexOf(txtBuscado) !== -1 ){
             preFiltro.push(producto);
         }
     }
