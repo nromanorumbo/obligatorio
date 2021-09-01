@@ -81,25 +81,25 @@ function filtra(){
 
     }
     
+    //verifico que el valor de max sa mayor que el de min
+    if(min<max){
+        //recorro el array y veo que objetos cumplen con los paramentros de filtrado
+        for (let i = 0; i<categoriesArray.length; i++) {
+
+            var productoActual = categoriesArray[i];
     
+                if (parseInt(productoActual.cost) > min && parseInt(productoActual.cost) < max) {
+    
+                    preFiltro.push(productoActual);
+                }
+          }
 
-    //recorro el array y veo que objetos cumplen con los paramentros de filtrado
-    for (let i = 0; i<categoriesArray.length; i++) {
 
-        var productoActual = categoriesArray[i];
-
-            if (parseInt(productoActual.cost) > min && parseInt(productoActual.cost) < max) {
-
-                preFiltro.push(productoActual);
-            }
-      }
+    }
+    
       
-      //dibugo la tabla con los productos 
-      if(preFiltro.length>0){
-        showCategoriesList(preFiltro);  
-      }else{
-        document.getElementById("cat-list-container").innerHTML="NO HAY PRODUCTO QUE CUMPLAN CON ESOS PARAMETROS";
-      }
+      //dibugo la tabla con los productos o mensaje de que  no hay productos
+      verificaLargoArray(preFiltro);
       
 
       //vacio los imputs
@@ -143,12 +143,8 @@ function buscador(){
             preFiltro.push(producto);
         }
     }
-
-    if(preFiltro.length>0){
-        showCategoriesList(preFiltro);  
-      }else{
-        document.getElementById("cat-list-container").innerHTML="NO HAY PRODUCTO QUE CUMPLAN CON ESOS PARAMETROS";
-      }
+    verificaLargoArray(preFiltro);
+    
 }
 
 //document.getElementById('txtBuscador').addEventListener('keyup',buscador())
@@ -193,4 +189,15 @@ function descendente(){
       });
 
     showCategoriesList(ordenado);
+}
+
+//funcion para ver que el array tenga algo sino tira mensaje por default
+function verificaLargoArray(array){
+
+    if(array.length>0){
+        showCategoriesList(array);  
+      }else{
+        document.getElementById("cat-list-container").innerHTML="NO HAY PRODUCTO QUE CUMPLAN CON ESOS PARAMETROS";
+      }
+    
 }
