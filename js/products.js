@@ -198,6 +198,8 @@ function verificaLargoArray(array){
         showCategoriesList(array);  
       }else{
         document.getElementById("cat-list-container").innerHTML="NO HAY PRODUCTO QUE CUMPLAN CON ESOS PARAMETROS";
+
+        Swal.fire('No se encontraron productos que cumplan tus parametros');
       }
     
 }
