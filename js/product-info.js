@@ -46,7 +46,7 @@ function muestraProducto(producto){
         <div class="list-group-item list-group-item-action">
             <div class="row">
  
-                <div class="col">`+foto+`</div>
+            <img src="` + foto + `" alt="" class="img-thumbnail">
                  
             </div>
         </div>
@@ -54,4 +54,14 @@ function muestraProducto(producto){
 
         document.getElementById("fotos-list-container").innerHTML = (fotos);
     }
+}
+
+
+
+
+function caliProducto(cuantas){
+
+    
+
+
 }
