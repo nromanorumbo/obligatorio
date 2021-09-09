@@ -7,7 +7,7 @@ function showCategoriesList(array){
         let category = array[i];
 
         htmlContentToAppend += `
-        <div class="list-group-item list-group-item-action">
+        <div class="list-group-item list-group-item-action" onclick="cambio()">
             <div class="row">
                 <div class="col-3">
                     <img src="` + category.imgSrc + `" alt="` + category.description + `" class="img-thumbnail">
@@ -202,4 +202,11 @@ function verificaLargoArray(array){
         Swal.fire('No se encontraron productos que cumplan tus parametros');
       }
     
+}
+
+
+function cambio(){
+//si cada anuncion tuviera un identificador lo usaria al llamar la API pero como es el mismo para todos solo hago un redirect
+
+location.href="product-info.html";
 }

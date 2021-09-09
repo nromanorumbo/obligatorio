@@ -6,7 +6,7 @@
 
 let comentariosProducto=[];
 let infoProductos={};
-let comentario={};
+
 
 
 document.addEventListener("DOMContentLoaded", function(e){
@@ -81,6 +81,7 @@ function muestraProducto(producto){
 
 
 function caliProducto(valor){
+    let comentario={};
 
 let coment=document.getElementById('comentarios').value;
     if(coment.trim()!=""){
@@ -90,10 +91,13 @@ let coment=document.getElementById('comentarios').value;
 
             comentario.score=valor;
             comentario.description=coment;
-            comentario.user=usu;
+            comentario.user=usu.nombre;
             comentario.dateTime=fecha;
 
             comentariosProducto.push(comentario);
+
+            //borro el comentario agregado
+            document.getElementById("comentarios").value="";
 
             muestraComentarios(comentariosProducto);
 
@@ -114,13 +118,15 @@ function muestraComentarios(comentariosProducto){
     let htmlContentToAppend = "";
     
     for(let i = 0; i < comentariosProducto.length; i++){
-        let comentario = comentariosProducto[i];
+        let nuevoComentario = comentariosProducto[i];
+
+        let dibujaEstrellas=califico(nuevoComentario.score);
 
         htmlContentToAppend += `
        <tr>
-            <td>${comentario.user}</td>
-            <td>${comentario.description}</td>
-            <td>${comentario.score}</td>
+            <td>${nuevoComentario.user}</td>
+            <td>${nuevoComentario.description}</td>
+            <td>${dibujaEstrellas}</td>
        </tr>
 
         `
@@ -129,4 +135,18 @@ function muestraComentarios(comentariosProducto){
 
 
     }
+}
+
+
+function califico(num){
+    let estrellas="";
+
+    for(let i=1;i<=5;i++){
+        if(i<=num){
+            estrellas+=`<i class="fas fa-star"></i>`;
+        }else{
+            estrellas+=`<i class="far fa-star"></i> `;
+        }
+    }
+    return estrellas;
 }
