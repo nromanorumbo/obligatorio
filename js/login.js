@@ -5,6 +5,7 @@ function validar()
               //aca esta hecho de dos manera una le paso por paramentros y la otra lo capturo, preguntar cualq ueire
 		   let user=document.getElementById("uNom");
 		   let pwr=document.getElementById("pwr");
+		   //esto es un objeto Usuario
 			let usuario={};
 
 		   

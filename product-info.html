@@ -13,6 +13,7 @@
   <link href="css/font-awesome.min.css" rel="stylesheet">
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link href="css/styles.css" rel="stylesheet">
+  <link href="css/fotos.css" rel="stylesheet">
 </head>
 
 <body>
@@ -24,7 +25,7 @@
       <a class="py-2 d-none d-md-inline-block" href="sell.html">Vender</a>
       <a class="py-2 d-none d-md-inline-block" href="cart.html">Mi carrito</a>
       <a class="py-2 d-none d-md-inline-block" href="login.html" onclick="sessionStorage.clear()">LogOut</a>
-      <p id="nomLogueado"></p>
+      <p id="nomLogueado" class="nombrete"></p>
     </div>
   </nav>
   <div class="container p-5">
@@ -37,6 +38,28 @@
       <p id="descriProducto" class="descrip"></p>
       <p id="precioProducto"></p>
       <hr>
+
+
+      <div class="gallery" >
+        <h3>Simple HTML Photo Gallery with JavaScript</h3>
+
+
+
+        <div class="thumbnails" id="carrete">
+
+        </div>
+
+
+        <div class="preview" id="imgPrimaria">
+          <!-- <img name="preview" src="images/img0.jpg" alt=""/> -->
+        </div>
+        
+        </div> <!-- Close the gallery div -->
+
+
+
+
+
       <div class="container">
         <div class="row">
             <div class="list-group" id="fotos-list-container">
@@ -115,6 +138,7 @@
   <script src="js/bootstrap.bundle.min.js"></script>
   <script src="js/init.js"></script>
   <script src="js/product-info.js"></script>
+  <script src="js/script.js"></script>
 </body>
 
 </html>

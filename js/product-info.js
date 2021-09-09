@@ -63,18 +63,35 @@ function muestraProducto(producto){
     for(let i = 0; i < producto.images.length; i++){
         let foto = producto.images[i];
 
-        fotos += `
-        <div class="list-group-item list-group-item-action">
-            <div class="row">
- 
-            <img src="` + foto + `" alt="" class="img-thumbnail">
-                 
-            </div>
-        </div>
-        `
 
-        document.getElementById("fotos-list-container").innerHTML = (fotos);
+
+        fotos+=`
+        <img onmouseover="preview.src=img`+i+`.src" name="img`+i+`" src="`+foto+`" alt="" />`
+
+
+
+
+
+        document.getElementById("carrete").innerHTML = (fotos);
+
+
+
+
+
+
+        // fotos += `
+        // <div class="list-group-item list-group-item-action">
+        //     <div class="row">
+ 
+        //     <img src="` + foto + `" alt="" class="img-thumbnail">
+                 
+        //     </div>
+        // </div>
+        // `
+
+        // document.getElementById("fotos-list-container").innerHTML = (fotos);
     }
+    document.getElementById("imgPrimaria").innerHTML = (`<img name="preview" src="`+producto.images[0]+`" alt=""/>`)
 }
 
 
