@@ -114,12 +114,27 @@ let coment=document.getElementById('comentarios').value;
             comentariosProducto.push(comentario);
 
             //borro el comentario agregado
-            document.getElementById("comentarios").value="";
+            vaciaTodo();
+
+            
 
             muestraComentarios(comentariosProducto);
 
     }
     //no se si tengo que validar ya que el valor no lo puede ingresar el usuario, preguntar eso
+
+}
+
+function vaciaTodo(){
+    document.getElementById("comentarios").value="";
+
+
+    document.getElementById("radio1").checked=false;
+    document.getElementById("radio2").checked=false;
+    document.getElementById("radio3").checked=false;
+    document.getElementById("radio4").checked=false;
+    document.getElementById("radio5").checked=false;
+
 
 }
 
