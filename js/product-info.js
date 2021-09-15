@@ -101,9 +101,12 @@ function caliProducto(valor){
     let comentario={};
 
 let coment=document.getElementById('comentarios').value;
-    if(coment.trim()!=""){
 
+    if(coment.trim()!=""){
+            //aca capturo el nombre del usuario del sessionstorage
            let usu=JSON.parse(sessionStorage.getItem("usuario"));
+
+           //tomo la fecha actual
             let fecha=new Date();
 
             comentario.score=valor;
