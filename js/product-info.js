@@ -122,6 +122,7 @@ let coment=document.getElementById('comentarios').value;
             
 
             muestraComentarios(comentariosProducto);
+
             Swal.fire(
                 'BUEN TRABAJO!',
                 'Agregaste tu Comentario con EXITOOO!!',
@@ -139,11 +140,11 @@ function vaciaTodo(){
     document.getElementById("comentarios").value="";
 
 
-    document.getElementById("radio1").checked=false;
-    document.getElementById("radio2").checked=false;
-    document.getElementById("radio3").checked=false;
-    document.getElementById("radio4").checked=false;
-    document.getElementById("radio5").checked=false;
+    // document.getElementById("radio1").checked=false;
+    // document.getElementById("radio2").checked=false;
+    // document.getElementById("radio3").checked=false;
+    // document.getElementById("radio4").checked=false;
+    // document.getElementById("radio5").checked=false;
 
 
 }
@@ -180,11 +181,11 @@ function muestraComentarios(comentariosProducto){
 }
 
 
-function califico(num){
+function califico(score){
     let estrellas="";
 
     for(let i=1;i<=5;i++){
-        if(i<=num){
+        if(i<=score){
             estrellas+=`<i class="fas fa-star"></i>`;
         }else{
             estrellas+=`<i class="far fa-star"></i> `;
