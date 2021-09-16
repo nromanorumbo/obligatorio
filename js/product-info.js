@@ -122,7 +122,14 @@ let coment=document.getElementById('comentarios').value;
             
 
             muestraComentarios(comentariosProducto);
+            Swal.fire(
+                'BUEN TRABAJO!',
+                'Agregaste tu Comentario con EXITOOO!!',
+                'success'
+              )
 
+    }else{
+        Swal.fire('tiene que introducir algun comentario para calificar');
     }
     //no se si tengo que validar ya que el valor no lo puede ingresar el usuario, preguntar eso
 
@@ -184,4 +191,65 @@ function califico(num){
         }
     }
     return estrellas;
+}
+
+
+
+async function myFunction(){
+ let text="";
+ let cant=0;
+ let comentario={};
+
+     text  =  await Swal.fire({
+        input: 'textarea',
+        inputLabel: 'CALIFICAR',
+        inputPlaceholder: 'Ingrese su comentario...',
+        inputAttributes: {
+          'aria-label': 'Type your message here'
+        },
+        showCancelButton: true
+      })
+      
+      if (text) {
+
+        cant = await Swal.fire({
+        title: 'Como Calificas ese auto?',
+        icon: 'question',
+        input: 'range',
+        inputLabel: 'Your age',
+        inputAttributes: {
+          min: 1,
+          max: 5,
+          step: 1
+        },
+        inputValue: 1
+
+
+        
+      })
+
+      if (cant!=0 & text!=""){
+
+        let usu=JSON.parse(sessionStorage.getItem("usuario"));
+
+        let num=parseInt(cant.value)
+        let come=text.value;
+
+        //tomo la fecha actual
+         let fecha=new Date();
+
+         comentario.score=num;
+         comentario.description=come;
+         comentario.user=usu.nombre;
+         comentario.dateTime=fecha;
+
+         comentariosProducto.push(comentario);
+
+         muestraComentarios(comentariosProducto);
+         Swal.fire("comentario agregado con exito")
+      }
+        
+      }
+
+    
 }
