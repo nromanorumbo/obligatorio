@@ -11,7 +11,7 @@ let usuario=JSON.parse(sessionStorage.getItem("usuario"));
 
 
  				 //aca meto el nombre del logueado
-          document.getElementById('nomLogueado').innerHTML=(usuario.nombre).toUpperCase();
+          document.getElementById('dropdownMenuLink').innerHTML=(usuario.nombre).toUpperCase();
 
 // document.addEventListener("DOMContentLoaded", ()=>{
 //   let usuario= JSON.parse(sessionStorage.getItem("usuario"));
