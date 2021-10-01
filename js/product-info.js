@@ -9,6 +9,7 @@ let infoProductos={};
 
 
 
+
 document.addEventListener("DOMContentLoaded", function(e){
     getJSONData(PRODUCT_INFO_URL).then(function(resultObj){
         if (resultObj.status === "ok")
@@ -21,6 +22,27 @@ document.addEventListener("DOMContentLoaded", function(e){
         
     });
 });
+
+
+//ENTREGA 4 traigo todos los productos
+
+document.addEventListener("DOMContentLoaded", function(e){
+    getJSONData(PRODUCTS_URL).then(function(resultObj){
+        if (resultObj.status === "ok")
+        {                                       
+            productosArray = resultObj.data;
+            // //esto es para ordenar de forma ascendente si cambio el orden de a y b lo hago descendente
+            // productosArray.sort(function(a, b){return a - b});
+            //hago que muestre los favoritos
+            
+
+            armaProductosRelacionados(productosArray);
+            
+        }
+        
+    });
+});
+
 
 
 //traigo de la api los comentarios de ese producto
@@ -192,6 +214,60 @@ function califico(score){
         }
     }
     return estrellas;
+}
+
+
+
+
+function armaProductosRelacionados(arrayP){
+    let productosRelacionados=[];
+    
+    let losProductos=infoProductos.relatedProducts
+
+    for(let i=0; i<losProductos.length;i++){        
+
+        productosRelacionados.push(arrayP[losProductos[i]]);
+        
+        
+    }
+
+muestraProductosRelacionados(productosRelacionados);
+
+}
+
+
+function muestraProductosRelacionados(algo){
+    let htmlContentToAppend = "";
+
+    htmlContentToAppend=(`<div class="carousel-item active"><img src="`+algo[0].imgSrc+`" class="d-block w-10" alt="`+algo[0].description+`"></div>`)
+    
+
+    for(let i = 1; i < algo.length; i++){
+        let category = algo[i];
+
+        htmlContentToAppend += 
+        //`
+        // <div class="list-group-item list-group-item-action" onclick="cambio()">
+        //     <div class="row">
+        //         <div class="col-3">
+        //             <img src="` + category.imgSrc + `" alt="` + category.description + `" class="img-thumbnail">
+        //         </div>
+                
+        //     </div>
+        // </div>
+        // `
+
+
+
+
+        `<div class="carousel-item">
+            <img src="`+ category.imgSrc +`" class="d-block w-10" alt="` + category.description + `">
+        </div>`
+
+
+        document.getElementById("cat-list-container").innerHTML = (htmlContentToAppend);
+    }
+
 }
 
 
