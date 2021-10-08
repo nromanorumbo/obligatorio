@@ -67,5 +67,5 @@ function muestraCarrito(array){
 
         document.getElementById("cat-list-container").innerHTML = (htmlContentToAppend);
     }
-    Swal.fire("U$S"+total.toString());
+    Swal.fire("TOTAL ACTUAL: U$S"+total.toString());
 }
