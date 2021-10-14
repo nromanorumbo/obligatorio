@@ -15,7 +15,20 @@ document.addEventListener("DOMContentLoaded", function(e){
         }
         
     });
-});
+
+}); 
+   document.getElementById("cat-list-container").addEventListener("onchange",function(e){
+        getJSONData(CART_INFO_URL).then(function(resultObj){
+            if (resultObj.status === "ok")
+            {                                       
+                carritoArray = resultObj.data;
+              
+                //Muestro las categorías ordenadas
+                muestraCarrito(carritoArray);
+            }
+            
+        });
+    });
 
 //lo que hago aca es con el array que traigo de la api armo el html para mostrarlo 
 
