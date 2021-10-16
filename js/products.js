@@ -7,9 +7,9 @@ function showCategoriesList(array){
         let category = array[i];
 
         htmlContentToAppend += `
-        <div class="list-group-item list-group-item-action" onclick="cambio()">
+        <div class="list-group-item list-group-item-action" >
             <div class="row">
-                <div class="col-3">
+                <div class="col-3" onclick="cambio()">
                     <img src="` + category.imgSrc + `" alt="` + category.description + `" class="img-thumbnail">
                 </div>
                 <div class="col">
@@ -17,6 +17,7 @@ function showCategoriesList(array){
                         <h4 class="mb-1">`+ category.name +`</h4><br>
                         <small class="text-muted">` + category.description + ` </small><br>
                         <small class="text-muted"><strong>`+category.currency + category.cost + `</strong> </small>
+                        <a class="add-cart cart`+i+`" href="#"> Agregar al Carro</a>
                     </div>
 
                 </div>
@@ -29,6 +30,28 @@ function showCategoriesList(array){
 }
 
 
+//--------------voy a inventar lo del carro------------------------------------------
+
+let carro=document.querySelectorAll('.add-cart');
+
+for(let i=0; i< carro.length; i++){
+
+    carro[i].addEventListener('click',()=>{
+        cartNumbers
+
+         
+    })
+
+}
+function cartNumbers(){
+    let productNumber = localStorage.getItem('cartNumbers');
+
+    //toDo
+   // localStorage.setItem('cart')
+}
+
+
+//------------------------------------------------FIN CARRO-----------------------------------------
 
 //Función que se ejecuta una vez que se haya lanzado el evento de
 //que el documento se encuentra cargado, es decir, se encuentran todos los

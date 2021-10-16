@@ -19,27 +19,23 @@ document.addEventListener("DOMContentLoaded", function(e){
 }); 
 
 //esto es para que este escuchando cuadno hay cambios
-   document.getElementById("canti").addEventListener("click",function(){
+//    document.getElementsByTagName("input").addEventListener("change",function(e){
 
-        let subtotal=0;
+//     cambiaCantidades();
 
-
-
-
-        document.getElementById("subtotal").innerHTML = (subtotal);
-
-    });
+//     });
 
 //lo que hago aca es con el array que traigo de la api armo el html para mostrarlo 
 
 function muestraCarrito(array){
 
-    let htmlContentToAppend = "";
+    let producto = "";
     let total=0;
     let cantidad=0;
     let unitario=0;
 
     for(let i=0; i < array.articles.length; i++){
+        let subtotal=0;
 
         let elCarro = array.articles[i];
         //veo si esta en doilares o pesos
@@ -61,37 +57,43 @@ function muestraCarrito(array){
              
 
         total+=cuanto;
-
-
-
-
-        htmlContentToAppend += `
-        <div class="list-group-item list-group-item-action" >
-            <div class="row">
-                <div class="col-3">
-                    <img src="` + elCarro.src + `" alt="` + elCarro.description + `" class="img-thumbnail">
-                </div>
-                <div class="col">
-                    <div class=" justify-content-between">
-                        <h4 class="mb-1">`+ elCarro.name +`</h4><br>
-                        <label for="cantidad">CANTIDAD : </label>
-                        <input type="number" id="canti"  min="1" max="100" value="`+cantidad+`"><br>
-
-                        <label for="unitario">UNITARIO : </label>
-                        <small class="text-muted" id="unitario"><strong>`+unitario + `</strong> </small><br>
-
-                        <label for="subTotal">SUBTOTAL : </label>
-                        <small class="text-muted" id="subtotal"><strong>`+cuanto + `</strong> </small>
+            //armo el producto
+            producto+=`<tr><td><img src="${elCarro.src}" alt="${elCarro.description}" class="img-thumbnail"></td> 
+                        <td> ${elCarro.name}</td>
+                        <td class='precio'>${unitario}</td>                        
+                        <td><input type="number" id="cant${i}"  min="1" max="100" value=${cantidad} onchange='cambiaCantidades()'><br> </td>
+                        <td id='resultado${i}'>${cuanto}</td> 
+                        </tr>
+                        `
                         
-                        
-                    </div>
-
-                </div>
-            </div>
-        </div>
-        `
           
-        document.getElementById("cat-list-container").innerHTML = (htmlContentToAppend);
+        document.getElementById("elCarro").innerHTML = (producto);
+    }
+    Swal.fire("TOTAL ACTUAL: U$S"+total.toString());
+}
+
+
+function cambiaCantidades(){
+    //invoco todo los elementos class precio y me devuelve un array
+    let precio=document.getElementsByClassName("precio");
+    //me traigo los imput que son las cantidades y armo otrio array el cual deve de coincidir el indice con el de precios
+    let cantidad= document.getElementsByTagName('input');
+
+    let total=0;
+    
+    //recorro el array de precios
+    for (let i=0; i<precio.length; i++){
+
+        
+       let elPrecio=parseFloat(precio[i].innerHTML);
+
+        let laCantidad=parseInt(cantidad[i].value);
+        let subtotal=elPrecio*laCantidad;
+        
+
+        total+=subtotal;
+        //armo cuanto le custa la cantidad de 1 item que quiere comprar
+        document.getElementById('resultado'+i).innerHTML=subtotal;
     }
     Swal.fire("TOTAL ACTUAL: U$S"+total.toString());
 }
