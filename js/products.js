@@ -6,10 +6,19 @@ function showCategoriesList(array){
     for(let i = 0; i < array.length; i++){
         let category = array[i];
 
+            
+
+
+
+
+
+
+
+
         htmlContentToAppend += `
-        <div class="list-group-item list-group-item-action" >
-            <div class="row">
-                <div class="col-3" onclick="cambio()">
+        
+            <div class="col-6">
+                <div class="col-6" onclick="cambio()">
                     <img src="` + category.imgSrc + `" alt="` + category.description + `" class="img-thumbnail">
                 </div>
                 <div class="col">
@@ -22,7 +31,7 @@ function showCategoriesList(array){
 
                 </div>
             </div>
-        </div>
+        
         `
 
         document.getElementById("cat-list-container").innerHTML = (htmlContentToAppend);
