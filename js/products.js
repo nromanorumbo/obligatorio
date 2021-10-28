@@ -22,12 +22,12 @@ function showCategoriesList(array){
                     <img src="` + category.imgSrc + `" alt="` + category.description + `" class="img-thumbnail">
                 </div>
                 <div class="col">
-                    <div class=" justify-content-between">
+                   
                         <h4 class="mb-1">`+ category.name +`</h4><br>
                         <small class="text-muted">` + category.description + ` </small><br>
                         <small class="text-muted"><strong>`+category.currency + category.cost + `</strong> </small>
                         <a class="add-cart cart`+i+`" href="#"> Agregar al Carro</a>
-                    </div>
+                    
 
                 </div>
             </div>

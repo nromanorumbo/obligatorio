@@ -39,6 +39,10 @@ function validar()
 				   //le seteo el estado como conectado
 				   usuario.estado="conectado";
 
+				   usuario.apellido="DOE";
+				   usuario.mail="correo@test.com.uy";
+				   usuario.telefono="2221133";
+
 			   //luego de tener usuario y contraseña guardo el usuario
 			  	 sessionStorage.setItem("usuario",JSON.stringify(usuario))
 
