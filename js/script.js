@@ -1,5 +1,5 @@
 //recupero el usuario conectado en sesion storage y lo asigno a una variable
-let usuario=JSON.parse(sessionStorage.getItem("usuario"));
+let usuario=JSON.parse(localStorage.getItem("usuario"));
 
 
 // aca lo que hago es  verifico que si no existe un usuario lo redirijo a login" 

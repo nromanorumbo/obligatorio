@@ -42,9 +42,10 @@ function validar()
 				   usuario.apellido="DOE";
 				   usuario.mail="correo@test.com.uy";
 				   usuario.telefono="2221133";
+				   usuario.imagen=`<a href="https://imgbb.com/"><img src="https://i.ibb.co/R0FBYFQ/img-avatar2.png" alt="img-avatar2" border="0"></a>`
 
 			   //luego de tener usuario y contraseña guardo el usuario
-			  	 sessionStorage.setItem("usuario",JSON.stringify(usuario))
+			  	 localStorage.setItem("usuario",JSON.stringify(usuario))
 
 			   //aca redirijo a la pagina de inicio luego de que se loguea
 			   window.location.href=("index.html");
@@ -57,7 +58,7 @@ function validar()
 
 function desconectar(){
 					signOut();
-					sessionStorage.clear();
+					localStorage.clear();
 					window.location.href=("login.html");
 					alert("chau");
 

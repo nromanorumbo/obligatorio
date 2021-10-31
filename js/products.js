@@ -17,7 +17,7 @@ function showCategoriesList(array){
 
         htmlContentToAppend += `
         
-            <div class="col-6">
+            <div class="col-lg-4 col-md-6 col-sm-12 ">
                 <div class="col-6" onclick="cambio()">
                     <img src="` + category.imgSrc + `" alt="` + category.description + `" class="img-thumbnail">
                 </div>
