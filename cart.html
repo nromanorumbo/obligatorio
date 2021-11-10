@@ -68,6 +68,14 @@
 
 
 
+
+
+
+
+
+
+<form class="needs-validation" id="sell-info">
+
 <div class="container">
 
   <h2 id="tituloCarro">CARRITO</h2>
@@ -82,6 +90,48 @@
   </table>
 
 </div>
+  <hr class="mb-4">
+  <h5 class="mb-3">Medio de Pago</h5>
+  <div class="d-block my-3">
+    <div class="custom-control custom-radio">
+      <input id="creditoRadio" name="publicationType" type="radio" class="custom-control-input" checked="" required="">
+      <label class="custom-control-label" for="creditoRadio">Credito (10%)</label>
+    </div>
+    <div class="custom-control custom-radio">
+      <input id="cobranzaRadio" name="publicationType" type="radio" class="custom-control-input" required="">
+      <label class="custom-control-label" for="cobranzaRadio">Red de Cobranza (7%)</label>
+    </div>
+    <div class="custom-control custom-radio">
+      <input id="debitoRadio" name="publicationType" type="radio" class="custom-control-input" required="">
+      <label class="custom-control-label" for="debitoRadio">Debito (3%)</label>
+    </div>
+
+  </div>
+  <hr class="mb-4">
+  <h4 class="mb-3">Costos</h4>
+  <ul class="list-group mb-3">
+      <li class="list-group-item d-flex justify-content-between lh-condensed">
+        <div>
+          <h6 class="my-0">Precio</h6>
+          <small class="text-muted">Subtotal</small>
+        </div>
+        <span class="text-muted" id="productoSubtotal">-</span>
+      </li>
+      <li class="list-group-item d-flex justify-content-between lh-condensed">
+        <div>
+          <h6 class="my-0">Porcentaje</h6>
+          <small class="text-muted">Según el medio de pago</small>
+        </div>
+        <span class="text-muted" id="comissionText">-</span>
+      </li>
+      <li class="list-group-item d-flex justify-content-between">
+        <span>Total (U$S)</span>
+        <strong id="costoTotal">-</strong>
+      </li>
+    </ul>
+  <hr class="mb-4">
+
+</form>
 
 
 

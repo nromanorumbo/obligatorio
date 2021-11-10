@@ -3,6 +3,7 @@
 //elementos HTML presentes.
 
 var carritoArray = [];
+let porcentaje = 0.10;
 
 document.addEventListener("DOMContentLoaded", function(e){
     getJSONData(CART_INFO_URL).then(function(resultObj){
@@ -16,7 +17,39 @@ document.addEventListener("DOMContentLoaded", function(e){
         
     });
 
+
+    document.getElementById("creditoRadio").addEventListener("change", function(){
+        porcentaje = 0.10;
+        updateTotalCosts();
+    });
+    
+    document.getElementById("cobranzaRadio").addEventListener("change", function(){
+        porcentaje = 0.07;
+        updateTotalCosts();
+    });
+
+    document.getElementById("debitoRadio").addEventListener("change", function(){
+        porcentaje = 0.03;
+        updateTotalCosts();
+    });
+
 }); 
+
+
+
+function updateTotalCosts(){
+    
+    let comissionCostHTML = document.getElementById("comissionText");
+    let costoTotalHTML = document.getElementById("costoTotal");
+
+   
+   
+    let tatalFinal = Math.round(total * (1+porcentaje));
+
+   
+    comissionCostHTML.innerHTML = Math.round(porcentaje*100);
+    costoTotalHTML.innerHTML = tatalFinal;
+}
 
 //esto es para que este escuchando cuadno hay cambios
 //    document.getElementsByTagName("input").addEventListener("change",function(e){
@@ -26,11 +59,13 @@ document.addEventListener("DOMContentLoaded", function(e){
 //     });
 
 //lo que hago aca es con el array que traigo de la api armo el html para mostrarlo 
+let total;
 
 function muestraCarrito(array){
 
+    total=0;
     let producto = "";
-    let total=0;
+    
     let cantidad=0;
     let unitario=0;
 
@@ -69,7 +104,8 @@ function muestraCarrito(array){
           
         document.getElementById("elCarro").innerHTML = (producto);
     }
-    Swal.fire("TOTAL ACTUAL: U$S"+total.toString());
+    //Swal.fire("TOTAL ACTUAL: U$S"+total.toString());
+    document.getElementById('productoSubtotal').innerHTML="U$S"+total.toString();
 }
 
 
@@ -79,7 +115,7 @@ function cambiaCantidades(){
     //me traigo los imput que son las cantidades y armo otrio array el cual deve de coincidir el indice con el de precios
     let cantidad= document.getElementsByTagName('input');
 
-    let total=0;
+    total=0;
     
     //recorro el array de precios
     for (let i=0; i<precio.length; i++){
@@ -95,5 +131,6 @@ function cambiaCantidades(){
         //armo cuanto le custa la cantidad de 1 item que quiere comprar
         document.getElementById('resultado'+i).innerHTML=subtotal;
     }
-    Swal.fire("TOTAL ACTUAL: U$S"+total.toString());
+    //Swal.fire("TOTAL ACTUAL: U$S"+total.toString());
+    document.getElementById('productoSubtotal').innerHTML="U$S"+total.toString();
 }
