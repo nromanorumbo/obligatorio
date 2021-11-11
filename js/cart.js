@@ -169,3 +169,10 @@ function cambiaCantidades(){
         }, false)
       })
   })()
+
+  function CambiaFormaDePago(texto){
+
+    formaDePago=texto;
+    document.getElementById("formaDePago").innerHTML=formaDePago;
+
+  }
