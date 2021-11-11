@@ -96,7 +96,14 @@ function muestraCarrito(array){
             producto+=`<tr><td><img src="${elCarro.src}" alt="${elCarro.description}" class="img-thumbnail"></td> 
                         <td> ${elCarro.name}</td>
                         <td class='precio'>${unitario}</td>                        
-                        <td><input type="number" id="cant${i}"  min="1" max="100" value=${cantidad} onchange='cambiaCantidades()'><br> </td>
+                        <td>
+                        <div>
+                        <input class="form-control" type="number" id="cant${i}"  min="1" max="100" value=${cantidad} onchange='cambiaCantidades()' "required"><br> 
+                            <div class="invalid-feedback">
+                                la cantidad tiene que ser mayor a 0.
+                            </div>
+                        </div>
+                        </td>
                         <td id='resultado${i}'>${cuanto}</td> 
                         </tr>
                         `
@@ -133,4 +140,32 @@ function cambiaCantidades(){
     }
     //Swal.fire("TOTAL ACTUAL: U$S"+total.toString());
     document.getElementById('productoSubtotal').innerHTML="U$S"+total.toString();
+    updateTotalCosts();
+
 }
+
+
+
+
+//para que valide antes de enviar 
+
+// Example starter JavaScript for disabling form submissions if there are invalid fields
+(function () {
+    'use strict'
+  
+    // Fetch all the forms we want to apply custom Bootstrap validation styles to
+    var forms = document.querySelectorAll('.needs-validation')
+  
+    // Loop over them and prevent submission
+    Array.prototype.slice.call(forms)
+      .forEach(function (form) {
+        form.addEventListener('submit', function (event) {
+          if (!form.checkValidity()) {
+            event.preventDefault()
+            event.stopPropagation()
+          }
+  
+          form.classList.add('was-validated')
+        }, false)
+      })
+  })()
