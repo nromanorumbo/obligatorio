@@ -129,8 +129,19 @@ function cambiaCantidades(){
 
         
        let elPrecio=parseFloat(precio[i].innerHTML);
+       let actual=document.getElementById('cant'+i)
+       let laCantidad=parseInt(cantidad[i].value);
+       //puse el comparo por que me cambia la bariable a boolean al hacer el or
+       let comparo=laCantidad
 
-        let laCantidad=parseInt(cantidad[i].value);
+        if(comparo="" || comparo<1){
+            laCantidad=0;
+            actual.classList.add("is-invalid");
+
+        }else{
+            actual.classList.remove("is-invalid");
+        }
+
         let subtotal=elPrecio*laCantidad;
         
 
@@ -138,6 +149,7 @@ function cambiaCantidades(){
         //armo cuanto le custa la cantidad de 1 item que quiere comprar
         document.getElementById('resultado'+i).innerHTML=subtotal;
     }
+    
     //Swal.fire("TOTAL ACTUAL: U$S"+total.toString());
     document.getElementById('productoSubtotal').innerHTML="U$S"+total.toString();
     updateTotalCosts();
