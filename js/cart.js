@@ -63,6 +63,8 @@ let total;
 
 function muestraCarrito(array){
 
+    document.getElementById("elCarro").innerHTML = "";
+
     total=0;
     let producto = "";
     
@@ -88,7 +90,7 @@ function muestraCarrito(array){
                cuanto=unitario*cantidad; 
             }
             
-             
+            
              
 
         total+=cuanto;
@@ -105,6 +107,7 @@ function muestraCarrito(array){
                         </div>
                         </td>
                         <td id='resultado${i}'>${cuanto}</td> 
+                        <td><input type="button" onclick="borrarArticulo(${i})"></td> 
                         </tr>
                         `
                         
@@ -188,3 +191,8 @@ function cambiaCantidades(){
     document.getElementById("formaDePago").innerHTML=formaDePago;
 
   }
+
+function borrarArticulo(num){
+    carritoArray.articles.splice(num,1);
+    muestraCarrito(carritoArray);
+}
